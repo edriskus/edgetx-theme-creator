@@ -58,11 +58,13 @@ export const ThemeContext = createContext<{
   onColorChange(name: string, value: string): void;
   onSummaryChange(name: string, value: string): void;
   onReset(): void;
+  onPrefill(values: Partial<EdgeTxTheme>): void;
 }>({
   theme: defaultTheme,
   onColorChange: () => {},
   onSummaryChange: () => {},
   onReset: () => {},
+  onPrefill: () => {},
 });
 
 export const ThemeContextProvider = ({ children }: PropsWithChildren<{}>) => {
@@ -86,14 +88,19 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren<{}>) => {
     }));
   }, []);
   const handleReset = useCallback(() => setTheme(defaultTheme), []);
+  const handlePrefill = useCallback(
+    (values: Partial<EdgeTxTheme>) => setTheme(values),
+    []
+  );
   const bundle = useMemo(
     () => ({
       theme,
       onColorChange: handleColorChange,
       onSummaryChange: handleSummaryChange,
       onReset: handleReset,
+      onPrefill: handlePrefill,
     }),
-    [theme, handleColorChange, handleSummaryChange, handleReset]
+    [theme, handleColorChange, handleSummaryChange, handleReset, handlePrefill]
   );
   return (
     <ThemeContext.Provider value={bundle}>{children}</ThemeContext.Provider>

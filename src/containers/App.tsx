@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import Colors from "../components/Colors";
-import Export from "../components/Export";
+import Actions from "../components/Actions";
 import Footer from "../components/Footer";
 import Screen from "../components/Screen";
 import Summary from "../components/Summary";
@@ -49,8 +49,7 @@ function App() {
               <Stack spacing={2} width="100%">
                 <Colors />
                 <Summary />
-
-                <Export />
+                <Actions />
               </Stack>
             </CardContent>
           </Card>
