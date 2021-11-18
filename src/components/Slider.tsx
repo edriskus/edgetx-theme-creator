@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { alpha, Box } from "@mui/system";
 import React from "react";
 import { useColors } from "../utils/Theme";
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Slider({ top, left, right, bottom, rotation }: Props) {
-  const { SECONDARY1 } = useColors();
+  const { SECONDARY1, PRIMARY1, FOCUS } = useColors();
   return (
     <Box
       position="absolute"
@@ -37,6 +37,30 @@ export default function Slider({ top, left, right, bottom, rotation }: Props) {
         width={8}
         height={160}
         sx={{ backgroundColor: SECONDARY1 }}
+        marginLeft="7px"
+      />
+      <Box
+        width={16}
+        height={16}
+        sx={{
+          backgroundColor: FOCUS,
+          position: "absolute",
+          boxShadow: `0px 0px 2px 1px ${alpha(PRIMARY1 ?? "", 0.5)}`,
+          top: "calc(50% - 8px)",
+          left: 5,
+        }}
+        marginLeft="7px"
+      />
+      <Box
+        width={16}
+        height={16}
+        sx={{
+          backgroundColor: FOCUS,
+          position: "absolute",
+          boxShadow: `0px 0px 2px 1px ${alpha(PRIMARY1 ?? "", 0.5)}`,
+          top: "10%",
+          left: -11,
+        }}
         marginLeft="7px"
       />
     </Box>
