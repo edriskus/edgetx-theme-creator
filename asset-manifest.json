@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.js": "/edgetx-theme-creator/static/js/main.fe739a11.chunk.js",
-    "main.js.map": "/edgetx-theme-creator/static/js/main.fe739a11.chunk.js.map",
-    "runtime-main.js": "/edgetx-theme-creator/static/js/runtime-main.7e6e400e.js",
-    "runtime-main.js.map": "/edgetx-theme-creator/static/js/runtime-main.7e6e400e.js.map",
-    "static/js/2.ade75cc6.chunk.js": "/edgetx-theme-creator/static/js/2.ade75cc6.chunk.js",
-    "static/js/2.ade75cc6.chunk.js.map": "/edgetx-theme-creator/static/js/2.ade75cc6.chunk.js.map",
-    "static/js/3.a852ce78.chunk.js": "/edgetx-theme-creator/static/js/3.a852ce78.chunk.js",
-    "static/js/3.a852ce78.chunk.js.map": "/edgetx-theme-creator/static/js/3.a852ce78.chunk.js.map",
+    "main.js": "/edgetx-theme-creator/static/js/main.76758137.chunk.js",
+    "main.js.map": "/edgetx-theme-creator/static/js/main.76758137.chunk.js.map",
+    "runtime-main.js": "/edgetx-theme-creator/static/js/runtime-main.d6bbe974.js",
+    "runtime-main.js.map": "/edgetx-theme-creator/static/js/runtime-main.d6bbe974.js.map",
+    "static/js/2.f1e58823.chunk.js": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js",
+    "static/js/2.f1e58823.chunk.js.map": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js.map",
+    "static/js/3.fdfd06f2.chunk.js": "/edgetx-theme-creator/static/js/3.fdfd06f2.chunk.js",
+    "static/js/3.fdfd06f2.chunk.js.map": "/edgetx-theme-creator/static/js/3.fdfd06f2.chunk.js.map",
     "index.html": "/edgetx-theme-creator/index.html",
-    "static/js/2.ade75cc6.chunk.js.LICENSE.txt": "/edgetx-theme-creator/static/js/2.ade75cc6.chunk.js.LICENSE.txt",
-    "static/media/ETX_bg_480x272.0654e17a.png": "/edgetx-theme-creator/static/media/ETX_bg_480x272.0654e17a.png"
+    "static/js/2.f1e58823.chunk.js.LICENSE.txt": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js.LICENSE.txt",
+    "static/media/ETX_bg_480x272.0654e17a.png": "/edgetx-theme-creator/static/media/ETX_bg_480x272.0654e17a.png",
+    "static/media/babyshark.dcfe5c1b.png": "/edgetx-theme-creator/static/media/babyshark.dcfe5c1b.png",
+    "static/media/cinem8.d59a6607.png": "/edgetx-theme-creator/static/media/cinem8.d59a6607.png",
+    "static/media/cinewhoop.ec179553.png": "/edgetx-theme-creator/static/media/cinewhoop.ec179553.png",
+    "static/media/skyeliner.43291929.png": "/edgetx-theme-creator/static/media/skyeliner.43291929.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7e6e400e.js",
-    "static/js/2.ade75cc6.chunk.js",
-    "static/js/main.fe739a11.chunk.js"
+    "static/js/runtime-main.d6bbe974.js",
+    "static/js/2.f1e58823.chunk.js",
+    "static/js/main.76758137.chunk.js"
   ]
 }
