@@ -10,10 +10,23 @@ import { Box } from "@mui/system";
 import Colors from "../components/Colors";
 import Actions from "../components/Actions";
 import Footer from "../components/Footer";
-import Screen from "../components/Screen";
 import Summary from "../components/Summary";
+import BackgroundUpload from "../components/BackgroundUpload";
+import { useMemo, useState } from "react";
+import { Screen1, Screen2, Screen3 } from "../visuals/Screens";
+import ScreenControls, { ScreenNumber } from "../components/ScreenControls";
+
+const screenMap = {
+  1: Screen1,
+  2: Screen2,
+  3: Screen3,
+};
 
 function App() {
+  const [background, setBackground] = useState<string | null>();
+  const [screen, setScreen] = useState<ScreenNumber>(1);
+  const Screen = useMemo(() => screenMap[screen], [screen]);
+
   return (
     <Container
       maxWidth="md"
@@ -55,7 +68,11 @@ function App() {
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Screen />
+          <Box sx={{ width: "100%", position: "relative" }}>
+            <BackgroundUpload onFile={setBackground} />
+            <Screen background={background} />
+          </Box>
+          <ScreenControls screen={screen} setScreen={setScreen} />
           <Typography
             variant="body2"
             gutterBottom

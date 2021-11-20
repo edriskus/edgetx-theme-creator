@@ -32,7 +32,7 @@ export default function BackgroundUpload({ onFile }: Props) {
         width: "100%",
         height: "100%",
         zIndex: 1,
-        background: "rgba(255,255,255,.5)",
+        background: "rgba(255,255,255,.75)",
         transition: "opacity 200ms",
         opacity: 0,
         ":hover": {
