@@ -3,6 +3,7 @@ import {
   CardContent,
   Container,
   Grid,
+  Link,
   Stack,
   Typography,
 } from "@mui/material";
@@ -79,11 +80,21 @@ function App() {
             color="textSecondary"
             sx={{ paddingTop: 2 }}
           >
-            Copy the downloaded file into THEMES directory of you SD card. Then
+            Copy the downloaded file into THEMES directory of your SD card. Then
             power on the radio and select the theme in UI settings menu.
             <br />
-            <b>Note:</b> Some widgets might not display the theme colors because
-            they're configurable individually from the widgets menu
+            <br />
+            To change the wallpaper, replace background.png file in
+            THEMES/EdgeTX with your own file{" "}
+            <b>
+              (the image has to be named background.png and be specifically
+              480x272px size for TX16s)
+            </b>
+            <br />
+            <br />
+            <Link target="_blank" href="https://github.com/EdgeTX/themes">
+              More info on EdgeTX themes
+            </Link>
           </Typography>
         </Grid>
       </Grid>

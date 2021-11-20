@@ -23,7 +23,9 @@ export default function Preference({
       <Box width="50%" style={{ color: PRIMARY1 }}>
         {title}
       </Box>
-      <Box width="50%">{children}</Box>
+      <Box width="50%" style={{ color: PRIMARY1 }}>
+        {children}
+      </Box>
     </Box>
   );
 }
