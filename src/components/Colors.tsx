@@ -28,7 +28,7 @@ export default function Colors() {
   return (
     <Box>
       {Object.entries(categories).map(([label, category]) => (
-        <Box>
+        <Box key={label}>
           <Typography variant="caption" color="textSecondary">
             {label}
           </Typography>
@@ -40,7 +40,7 @@ export default function Colors() {
             flexWrap="wrap"
           >
             {Object.entries(category).map(([key, title]) => (
-              <Grid item xs="auto">
+              <Grid item xs="auto" key={key}>
                 <Picker name={key} value={(colors as any)[key]} title={title} />
               </Grid>
             ))}

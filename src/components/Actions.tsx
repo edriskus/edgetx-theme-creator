@@ -1,11 +1,17 @@
-import { Replay, SaveAlt } from "@mui/icons-material";
-import { Button, IconButton, Stack, Tooltip } from "@mui/material";
+import { Replay } from "@mui/icons-material";
+import { IconButton, Stack, Tooltip } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSaveYaml } from "../utils/Save";
 import { useResetTheme } from "../utils/Theme";
+import HowToInstall from "./HowToInstall";
 import Import from "./Import";
 
-export default function Export() {
+interface Props {
+  saveBackground(): void;
+  hasBackground: boolean;
+}
+
+export default function Export({ saveBackground, hasBackground }: Props) {
   const saveYaml = useSaveYaml();
   const reset = useResetTheme();
 
@@ -18,10 +24,11 @@ export default function Export() {
           <Replay />
         </IconButton>
       </Tooltip>
-      <Button variant="contained" onClick={saveYaml}>
-        <SaveAlt sx={{ marginRight: 0.5 }} />
-        Save
-      </Button>
+      <HowToInstall
+        saveYml={saveYaml}
+        saveBackground={saveBackground}
+        hasBackground={hasBackground}
+      />
     </Stack>
   );
 }

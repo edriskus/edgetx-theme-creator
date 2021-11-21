@@ -13,9 +13,10 @@ import Actions from "../components/Actions";
 import Footer from "../components/Footer";
 import Summary from "../components/Summary";
 import BackgroundUpload from "../components/BackgroundUpload";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Screen1, Screen2, Screen3 } from "../visuals/Screens";
 import ScreenControls, { ScreenNumber } from "../components/ScreenControls";
+import { cropImg } from "../utils/Crop";
 
 const screenMap = {
   1: Screen1,
@@ -27,6 +28,16 @@ function App() {
   const [background, setBackground] = useState<string | null>();
   const [screen, setScreen] = useState<ScreenNumber>(1);
   const Screen = useMemo(() => screenMap[screen], [screen]);
+
+  const downloadBackground = useCallback(() => {
+    if (background) {
+      cropImg(background).then((blob?: Blob) => {
+        if (blob) {
+          saveAs(blob, "background.png");
+        }
+      });
+    }
+  }, [background]);
 
   return (
     <Container
@@ -63,7 +74,10 @@ function App() {
               <Stack spacing={2} width="100%">
                 <Colors />
                 <Summary />
-                <Actions />
+                <Actions
+                  saveBackground={downloadBackground}
+                  hasBackground={!!background}
+                />
               </Stack>
             </CardContent>
           </Card>
@@ -76,29 +90,19 @@ function App() {
           <ScreenControls
             screen={screen}
             setScreen={setScreen}
-            fileContent={background}
+            saveBackground={downloadBackground}
+            hasBackground={!!background}
           />
-          <Typography
-            variant="body2"
-            gutterBottom
-            color="textSecondary"
-            sx={{ paddingTop: 2 }}
-          >
-            Copy the downloaded file into THEMES directory of your SD card. Then
-            power on the radio and select the theme in UI settings menu.
-            <br />
-            <br />
-            To change the wallpaper, replace background.png file in
-            THEMES/EdgeTX with your own file{" "}
-            <b>
-              (the image has to be named background.png and be specifically
-              480x272px size for TX16s)
-            </b>
-            <br />
-            <br />
-            <Link target="_blank" href="https://github.com/EdgeTX/themes">
-              More info on EdgeTX themes
-            </Link>
+          <Typography gutterBottom variant="body2" color="textSecondary">
+            If you notice any bugs or have features that you'd like to see, you
+            can{" "}
+            <Link
+              target="_blank"
+              href="https://github.com/edriskus/edgetx-theme-creator/issues"
+            >
+              open an <b>Issue</b> on GitHub
+            </Link>{" "}
+            and I'll make sure to address it.
           </Typography>
         </Grid>
       </Grid>

@@ -2,20 +2,21 @@ import { Download, NavigateBefore, NavigateNext } from "@mui/icons-material";
 import { IconButton, Tooltip } from "@mui/material";
 import { Box } from "@mui/system";
 import { Dispatch, SetStateAction, useCallback } from "react";
-import { cropImg } from "../utils/Crop";
 
 export type ScreenNumber = 1 | 2 | 3;
 
 interface Props {
   screen: ScreenNumber;
   setScreen: Dispatch<SetStateAction<ScreenNumber>>;
-  fileContent?: string | null;
+  saveBackground(): void;
+  hasBackground: boolean;
 }
 
 export default function ScreenControls({
   screen,
   setScreen,
-  fileContent,
+  saveBackground,
+  hasBackground,
 }: Props) {
   const onPrev = useCallback(() => {
     setScreen((s) => (s > 1 ? s - 1 : s) as ScreenNumber);
@@ -24,16 +25,6 @@ export default function ScreenControls({
   const onNext = useCallback(() => {
     setScreen((s) => (s < 3 ? s + 1 : s) as ScreenNumber);
   }, [setScreen]);
-
-  const downloadFile = useCallback(() => {
-    if (fileContent) {
-      cropImg(fileContent).then((blob?: Blob) => {
-        if (blob) {
-          saveAs(blob, "background.png");
-        }
-      });
-    }
-  }, [fileContent]);
 
   return (
     <Box
@@ -55,10 +46,10 @@ export default function ScreenControls({
       <Box sx={{ flexGrow: 1 }} />
       <Tooltip title="Download resized file">
         <IconButton
-          onClick={downloadFile}
+          onClick={saveBackground}
           size="large"
           color="primary"
-          disabled={!fileContent}
+          disabled={!hasBackground}
         >
           <Download />
         </IconButton>

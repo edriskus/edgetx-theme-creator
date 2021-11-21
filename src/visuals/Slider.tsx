@@ -28,6 +28,7 @@ export default function Slider({ top, left, right, bottom, rotation }: Props) {
       <Box>
         {new Array(40).fill(true).map((_, i) => (
           <Box
+            key={i}
             sx={{ width: 9, height: "1px", backgroundColor: SECONDARY1 }}
             marginY="3px"
           />

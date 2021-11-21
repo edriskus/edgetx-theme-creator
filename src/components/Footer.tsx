@@ -15,7 +15,13 @@ export default function Footer() {
     >
       <Typography align="center" color="textSecondary" variant="caption">
         Made for FPV pilots by an FPV pilot{" "}
-        <a href="https://www.youtube.com/user/edriskus">@edriskus</a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.youtube.com/user/edriskus"
+        >
+          @edriskus
+        </a>
       </Typography>
     </Box>
   );
