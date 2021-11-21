@@ -23,6 +23,7 @@ export default function BackgroundUpload({ onFile }: Props) {
   }, [filesContent]);
 
   const removeFile = useCallback(() => onFile(null), [onFile]);
+
   return (
     <Box
       sx={{
@@ -48,6 +49,7 @@ export default function BackgroundUpload({ onFile }: Props) {
           <AddPhotoAlternate />
         </IconButton>
       </Tooltip>
+
       <Tooltip title="Remove background">
         <IconButton onClick={removeFile} size="large" color="error">
           <Delete />

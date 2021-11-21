@@ -73,7 +73,11 @@ function App() {
             <BackgroundUpload onFile={setBackground} />
             <Screen background={background} />
           </Box>
-          <ScreenControls screen={screen} setScreen={setScreen} />
+          <ScreenControls
+            screen={screen}
+            setScreen={setScreen}
+            fileContent={background}
+          />
           <Typography
             variant="body2"
             gutterBottom
