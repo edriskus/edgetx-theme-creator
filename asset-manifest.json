@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/edgetx-theme-creator/static/js/main.76758137.chunk.js",
-    "main.js.map": "/edgetx-theme-creator/static/js/main.76758137.chunk.js.map",
-    "runtime-main.js": "/edgetx-theme-creator/static/js/runtime-main.d6bbe974.js",
-    "runtime-main.js.map": "/edgetx-theme-creator/static/js/runtime-main.d6bbe974.js.map",
-    "static/js/2.f1e58823.chunk.js": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js",
-    "static/js/2.f1e58823.chunk.js.map": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js.map",
-    "static/js/3.fdfd06f2.chunk.js": "/edgetx-theme-creator/static/js/3.fdfd06f2.chunk.js",
-    "static/js/3.fdfd06f2.chunk.js.map": "/edgetx-theme-creator/static/js/3.fdfd06f2.chunk.js.map",
+    "main.js": "/edgetx-theme-creator/static/js/main.8242e8d8.chunk.js",
+    "main.js.map": "/edgetx-theme-creator/static/js/main.8242e8d8.chunk.js.map",
+    "runtime-main.js": "/edgetx-theme-creator/static/js/runtime-main.070ac32f.js",
+    "runtime-main.js.map": "/edgetx-theme-creator/static/js/runtime-main.070ac32f.js.map",
+    "static/js/2.925c9377.chunk.js": "/edgetx-theme-creator/static/js/2.925c9377.chunk.js",
+    "static/js/2.925c9377.chunk.js.map": "/edgetx-theme-creator/static/js/2.925c9377.chunk.js.map",
+    "static/js/3.76f0d743.chunk.js": "/edgetx-theme-creator/static/js/3.76f0d743.chunk.js",
+    "static/js/3.76f0d743.chunk.js.map": "/edgetx-theme-creator/static/js/3.76f0d743.chunk.js.map",
     "index.html": "/edgetx-theme-creator/index.html",
-    "static/js/2.f1e58823.chunk.js.LICENSE.txt": "/edgetx-theme-creator/static/js/2.f1e58823.chunk.js.LICENSE.txt",
+    "static/js/2.925c9377.chunk.js.LICENSE.txt": "/edgetx-theme-creator/static/js/2.925c9377.chunk.js.LICENSE.txt",
     "static/media/ETX_bg_480x272.0654e17a.png": "/edgetx-theme-creator/static/media/ETX_bg_480x272.0654e17a.png",
     "static/media/babyshark.dcfe5c1b.png": "/edgetx-theme-creator/static/media/babyshark.dcfe5c1b.png",
     "static/media/cinem8.d59a6607.png": "/edgetx-theme-creator/static/media/cinem8.d59a6607.png",
@@ -17,8 +17,8 @@
     "static/media/skyeliner.43291929.png": "/edgetx-theme-creator/static/media/skyeliner.43291929.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.d6bbe974.js",
-    "static/js/2.f1e58823.chunk.js",
-    "static/js/main.76758137.chunk.js"
+    "static/js/runtime-main.070ac32f.js",
+    "static/js/2.925c9377.chunk.js",
+    "static/js/main.8242e8d8.chunk.js"
   ]
 }
