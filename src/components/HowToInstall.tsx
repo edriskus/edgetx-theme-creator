@@ -10,32 +10,52 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { useSummary } from "../utils/Theme";
+import { useVersion } from "../utils/Version";
 
 interface Props {
   saveYml(): void;
+  saveZip(): void;
   saveBackground(): void;
   hasBackground: boolean;
 }
 
 export default function HowToInstall({
+  saveZip,
   saveYml,
   saveBackground,
   hasBackground,
 }: Props) {
+  const { name } = useSummary();
   const [open, setOpen] = useState(false);
+  const version = useVersion();
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
+  const itemSize = useMemo(() => {
+    if (version === "2.6" || !hasBackground) {
+      return 6;
+    } else {
+      return 4;
+    }
+  }, [version, hasBackground]);
+  const maxWidth = useMemo(() => {
+    if (version === "2.6" || !hasBackground) {
+      return "sm";
+    } else {
+      return "md";
+    }
+  }, [version, hasBackground]);
   return (
     <>
       <Button onClick={handleOpen} variant="contained">
         <Save sx={{ marginRight: 0.5 }} />
         Download
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth="md">
+      <Dialog open={open} onClose={handleClose} maxWidth={maxWidth}>
         <DialogContent>
           <Grid container spacing={2}>
-            <Grid item sm={4}>
+            <Grid item sm={itemSize}>
               <Typography
                 variant="h2"
                 align="center"
@@ -44,22 +64,45 @@ export default function HowToInstall({
               >
                 1
               </Typography>
-              <DialogContentText align="center">
-                Copy the downloaded <b>theme .yml file</b> into <b>THEMES</b>{" "}
-                directory of your SD card.
-              </DialogContentText>
-              <Box display="flex" justifyContent="center" marginTop={2}>
-                <Button
-                  size="small"
-                  variant="contained"
-                  color="primary"
-                  onClick={saveYml}
-                >
-                  <Download sx={{ marginRight: 0.5 }} /> Theme .yml
-                </Button>
-              </Box>
+              {version === "2.5" && (
+                <>
+                  <DialogContentText align="center">
+                    Copy the downloaded <b>theme .yml file</b> into{" "}
+                    <b>THEMES</b> directory of your SD card.
+                  </DialogContentText>
+                  <Box display="flex" justifyContent="center" marginTop={2}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="primary"
+                      onClick={saveYml}
+                    >
+                      <Download sx={{ marginRight: 0.5 }} /> Theme .yml
+                    </Button>
+                  </Box>
+                </>
+              )}
+              {version === "2.6" && (
+                <>
+                  <DialogContentText align="center">
+                    Extract the downloaded <b>theme .zip file</b> and copy the
+                    whole "{name}" folder into <b>THEMES</b> directory of your
+                    SD card.
+                  </DialogContentText>
+                  <Box display="flex" justifyContent="center" marginTop={2}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="primary"
+                      onClick={saveZip}
+                    >
+                      <Download sx={{ marginRight: 0.5 }} /> Theme .zip
+                    </Button>
+                  </Box>
+                </>
+              )}
             </Grid>
-            <Grid item sm={4}>
+            <Grid item sm={itemSize}>
               <Typography
                 variant="h2"
                 align="center"
@@ -73,8 +116,8 @@ export default function HowToInstall({
                 menu.
               </DialogContentText>
             </Grid>
-            {hasBackground ? (
-              <Grid item sm={4}>
+            {version === "2.5" && hasBackground ? (
+              <Grid item sm={itemSize}>
                 <Typography
                   variant="h2"
                   align="center"

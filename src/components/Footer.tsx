@@ -5,6 +5,7 @@ export default function Footer() {
   return (
     <Box
       paddingY={1}
+      paddingTop={3}
       justifySelf="end"
       sx={{
         position: "sticky",

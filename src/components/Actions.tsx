@@ -1,18 +1,19 @@
 import { Replay } from "@mui/icons-material";
 import { IconButton, Stack, Tooltip } from "@mui/material";
 import { Box } from "@mui/system";
-import { useSaveYaml } from "../utils/Save";
+import { useSaveYaml, useSaveZip } from "../utils/Save";
 import { useResetTheme } from "../utils/Theme";
 import HowToInstall from "./HowToInstall";
 import Import from "./Import";
 
 interface Props {
   saveBackground(): void;
-  hasBackground: boolean;
+  background?: string | null;
 }
 
-export default function Export({ saveBackground, hasBackground }: Props) {
+export default function Export({ saveBackground, background }: Props) {
   const saveYaml = useSaveYaml();
+  const saveZip = useSaveZip(background);
   const reset = useResetTheme();
 
   return (
@@ -26,8 +27,9 @@ export default function Export({ saveBackground, hasBackground }: Props) {
       </Tooltip>
       <HowToInstall
         saveYml={saveYaml}
+        saveZip={saveZip}
         saveBackground={saveBackground}
-        hasBackground={hasBackground}
+        hasBackground={!!background}
       />
     </Stack>
   );

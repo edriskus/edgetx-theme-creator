@@ -1,10 +1,12 @@
 import {
+  AppBar,
   Card,
   CardContent,
   Container,
   Grid,
   Link,
   Stack,
+  Toolbar,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -17,6 +19,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Screen1, Screen2, Screen3 } from "../visuals/Screens";
 import ScreenControls, { ScreenNumber } from "../components/ScreenControls";
 import { cropImg } from "../utils/Crop";
+import VersionSelect from "../components/VersionSelect";
 
 const screenMap = {
   1: Screen1,
@@ -49,17 +52,28 @@ function App() {
         minHeight: "100vh",
       }}
     >
+      <AppBar
+        position="fixed"
+        color="default"
+        sx={{ backgroundColor: "white" }}
+        elevation={0}
+      >
+        <Toolbar>
+          <Typography variant="h6" component="div">
+            EdgeTX Theme Creator
+          </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          <VersionSelect />
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
       <Box
         padding={2}
         sx={{
           display: "flex",
-          // alignItems: "center",
-          // justifyContent: "center",
-          // alignContent: "center",
           flexDirection: "column",
         }}
       >
-        <Typography variant="h2">EdgeTX Theme Creator</Typography>
         <Typography gutterBottom variant="body2" color="textSecondary">
           This is an experimental tool that has only been tested with{" "}
           <b>Edge TX 2.5</b> and on <b>Radiomaster TX16S</b>. The resulting
@@ -76,7 +90,7 @@ function App() {
                 <Summary />
                 <Actions
                   saveBackground={downloadBackground}
-                  hasBackground={!!background}
+                  background={background}
                 />
               </Stack>
             </CardContent>

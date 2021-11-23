@@ -5,14 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 import { theme } from "./styles/Theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ThemeContextProvider } from "./utils/Theme";
+import { VersionContextProvider } from "./utils/Version";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ThemeContextProvider>
-        <App />
-      </ThemeContextProvider>
+      <VersionContextProvider>
+        <ThemeContextProvider>
+          <App />
+        </ThemeContextProvider>
+      </VersionContextProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

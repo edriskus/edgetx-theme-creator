@@ -27,7 +27,7 @@ interface Summary {
   info: string;
 }
 
-interface EdgeTxTheme {
+export interface EdgeTxTheme {
   summary: Summary;
   colors: Colors;
 }
