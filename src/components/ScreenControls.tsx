@@ -1,4 +1,9 @@
-import { Download, NavigateBefore, NavigateNext } from "@mui/icons-material";
+import {
+  Download,
+  NavigateBefore,
+  NavigateNext,
+  Screenshot,
+} from "@mui/icons-material";
 import { IconButton, Tooltip } from "@mui/material";
 import { Box } from "@mui/system";
 import { Dispatch, SetStateAction, useCallback } from "react";
@@ -10,6 +15,7 @@ interface Props {
   setScreen: Dispatch<SetStateAction<ScreenNumber>>;
   saveBackground(): void;
   hasBackground: boolean;
+  doScreenshot(): void;
 }
 
 export default function ScreenControls({
@@ -17,6 +23,7 @@ export default function ScreenControls({
   setScreen,
   saveBackground,
   hasBackground,
+  doScreenshot,
 }: Props) {
   const onPrev = useCallback(() => {
     setScreen((s) => (s > 1 ? s - 1 : s) as ScreenNumber);
@@ -52,6 +59,11 @@ export default function ScreenControls({
           disabled={!hasBackground}
         >
           <Download />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Take a screenshot">
+        <IconButton onClick={doScreenshot} size="large" color="primary">
+          <Screenshot />
         </IconButton>
       </Tooltip>
     </Box>

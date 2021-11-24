@@ -6,6 +6,7 @@ import {
   useMemo,
   useRef,
   useState,
+  RefObject,
 } from "react";
 
 const WIDTH = 480;
@@ -13,11 +14,13 @@ const HEIGHT = 272;
 
 interface Props {
   background?: string | null;
+  screenshotRef?: RefObject<HTMLDivElement>;
 }
 
 export default function Layout({
   background,
   children,
+  screenshotRef,
 }: PropsWithChildren<Props>) {
   const ref = useRef<HTMLDivElement>(null);
   const [percent, setPercent] = useState(1);
@@ -36,6 +39,7 @@ export default function Layout({
   return (
     <Box ref={ref} height={calculatedHeight} maxWidth="100%">
       <Box
+        ref={screenshotRef}
         position="relative"
         width={WIDTH}
         height={HEIGHT}

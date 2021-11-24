@@ -20,6 +20,7 @@ import { Screen1, Screen2, Screen3 } from "../visuals/Screens";
 import ScreenControls, { ScreenNumber } from "../components/ScreenControls";
 import { cropImg } from "../utils/Crop";
 import VersionSelect from "../components/VersionSelect";
+import { useScreenshot } from "../utils/Screenshot";
 
 const screenMap = {
   1: Screen1,
@@ -31,6 +32,8 @@ function App() {
   const [background, setBackground] = useState<string | null>();
   const [screen, setScreen] = useState<ScreenNumber>(1);
   const Screen = useMemo(() => screenMap[screen], [screen]);
+
+  const { screenshotRef, doScreenshot } = useScreenshot();
 
   const downloadBackground = useCallback(() => {
     if (background) {
@@ -99,13 +102,14 @@ function App() {
         <Grid item xs={12} md={6}>
           <Box sx={{ width: "100%", position: "relative" }}>
             <BackgroundUpload onFile={setBackground} />
-            <Screen background={background} />
+            <Screen background={background} screenshotRef={screenshotRef} />
           </Box>
           <ScreenControls
             screen={screen}
             setScreen={setScreen}
             saveBackground={downloadBackground}
             hasBackground={!!background}
+            doScreenshot={doScreenshot}
           />
           <Typography gutterBottom variant="body2" color="textSecondary">
             If you notice any bugs or have features that you'd like to see, you

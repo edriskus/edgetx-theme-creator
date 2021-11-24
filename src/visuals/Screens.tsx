@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import { RefObject } from "react";
 import { useColors } from "../utils/Theme";
 import Channels from "./Channels";
 import Dropdown from "./Dropdown";
@@ -14,11 +14,12 @@ import Titlebar from "./Titlebar";
 
 interface Props {
   background?: string | null;
+  screenshotRef?: RefObject<HTMLDivElement>;
 }
 
-export function Screen1({ background }: Props) {
+export function Screen1({ background, screenshotRef }: Props) {
   return (
-    <Layout background={background}>
+    <Layout background={background} screenshotRef={screenshotRef}>
       <>
         <Navbar />
         <Sliders>
@@ -38,10 +39,10 @@ export function Screen1({ background }: Props) {
   );
 }
 
-export function Screen2({ background }: Props) {
+export function Screen2({ background, screenshotRef }: Props) {
   const { SECONDARY3 } = useColors();
   return (
-    <Layout background={background}>
+    <Layout background={background} screenshotRef={screenshotRef}>
       <Box width="100%" height="100%" sx={{ backgroundColor: SECONDARY3 }}>
         <Navbar />
         <Titlebar title="Multirotor" />
@@ -51,10 +52,10 @@ export function Screen2({ background }: Props) {
   );
 }
 
-export function Screen3({ background }: Props) {
+export function Screen3({ background, screenshotRef }: Props) {
   const { SECONDARY3, WARNING, DISABLED } = useColors();
   return (
-    <Layout background={background}>
+    <Layout background={background} screenshotRef={screenshotRef}>
       <Box width="100%" height="100%" sx={{ backgroundColor: SECONDARY3 }}>
         <Navbar />
         <Titlebar title="HARDWARE" />
